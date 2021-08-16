@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# Use Sidekiq for backgorund jobs
+gem 'sidekiq'
+# Use Sidecloq to schedule recurring jobs
+gem 'sidecloq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
