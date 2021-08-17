@@ -1,0 +1,56 @@
+Package: KernSmooth
+Version: 2.23-20
+Priority: recommended
+Depends: R (>= 4.2), stats
+Suggests: MASS, carData
+License: Unlimited
+MD5sum: f06dc418b9622e1c02e072fe7630b53e
+NeedsCompilation: yes
+Path: 4.2.0/Recommended
+
+Package: lattice
+Version: 0.20-44
+Priority: recommended
+Depends: R (>= 4.2)
+Imports: grid, grDevices, graphics, stats, utils
+Suggests: KernSmooth, MASS, latticeExtra
+Enhances: chron
+License: GPL (>= 2)
+MD5sum: e4a5d8bbb64b108e2f937dcba8cc897c
+NeedsCompilation: yes
+Path: 4.2.0/Recommended
+
+Package: MASS
+Version: 7.3-54
+Priority: recommended
+Depends: R (>= 4.2), grDevices, graphics, stats, utils
+Imports: methods
+Suggests: lattice, nlme, nnet, survival
+License: GPL-2 | GPL-3
+MD5sum: 6af0462bc0cf9298355e47af80815647
+NeedsCompilation: yes
+Path: 4.2.0/Recommended
+
+Package: Matrix
+Version: 1.3-4
+Priority: recommended
+Depends: R (>= 4.2)
+Imports: methods, graphics, grid, stats, utils, lattice
+Suggests: expm, MASS
+Enhances: MatrixModels, graph, SparseM, sfsmisc, igraph, maptools, sp,
+        spdep
+License: GPL (>= 2) | file LICENCE
+MD5sum: c78804c97117698bdd26eb63ad8298d6
+NeedsCompilation: yes
+Path: 4.2.0/Recommended
+
+Package: mgcv
+Version: 1.8-36
+Priority: recommended
+Depends: R (>= 4.2), nlme (>= 3.1-64)
+Imports: methods, stats, graphics, Matrix, splines, utils
+Suggests: parallel, survival, MASS
+License: GPL (>= 2)
+MD5sum: af0c2b4b98986105a8407e10b9dcf8b2
+NeedsCompilation: yes
+Path: 4.2.0/Recommended
