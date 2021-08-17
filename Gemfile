@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'sidekiq'
 # Use Sidecloq to schedule recurring jobs
 gem 'sidecloq'
+# Use RubyZip to unzip files
+gem 'rubyzip'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +50,7 @@ group :development, :test do
   gem 'bullet'
   gem 'factory_bot'
   gem 'pry'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
