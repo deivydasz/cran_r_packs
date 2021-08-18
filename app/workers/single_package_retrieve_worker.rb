@@ -13,6 +13,8 @@ class SinglePackageRetrieveWorker
     write_required_records(extracted_information)
   end
 
+  private
+
   def dowload_link(package_name, version)
     "https://cran.r-project.org/src/contrib/#{package_name}_#{version}.tar.gz"
   end
