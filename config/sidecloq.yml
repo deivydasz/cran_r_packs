@@ -1,0 +1,4 @@
+daily_cran_r_scraper: # a unique name for this schedule
+  class: DailyPackageRetrieveWorker
+  args: ['https://cran.r-project.org/src/contrib/PACKAGES']
+  cron: "0 12 * * *" # run daily at 12
