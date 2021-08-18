@@ -3,7 +3,7 @@ class PackagesController < ApplicationController
 
   # GET /packages or /packages.json
   def index
-    @packages = Package.all
+    @packages = Package.limit(50)
   end
 
   # GET /packages/1 or /packages/1.json
