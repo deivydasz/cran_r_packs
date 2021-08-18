@@ -22,7 +22,6 @@ class DailyPackageRetrieveWorker
   end
 
   def enque_file_worker(package_name, version)
-    #TODO create worker that downloads tar.gz and extracts information,
-      #pass pairs one by one to enque backround jobs
+    SinglePackageRetrieveWorker.perform_async(package_name, version)
   end
 end
