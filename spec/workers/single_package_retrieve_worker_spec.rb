@@ -10,7 +10,7 @@ RSpec.describe SinglePackageRetrieveWorker, type: :model do
       subject.perform('trust', '0.1-8')
       email = 'charlie@stat.umn.edu'
       name = 'Charles J. Geyer'
-      expect(Package.where(name: 'trust', Version: '0.1-8').count).to eql 1
+      expect(Package.where(name: 'trust', version: '0.1-8').count).to eql 1
       expect(Author.where(name: name, email: email).count).to eql 1
       expect(Maintainer.where(name: name, email: email).count).to eql 1
     end
