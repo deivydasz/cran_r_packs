@@ -7,8 +7,8 @@ class SinglePackageRetrieveWorker
   def perform(package_name, version)
     return if Package.where(name: package_name, version: version).any?
 
-    file = URI.open(dowload_link(package_name, version))
-    description = read_description_file(package_name, file)
+    stream = URI.open(dowload_link(package_name, version))
+    description = read_description_file(package_name, stream)
     extracted_information = required_info_hash(description)
     write_required_records(extracted_information)
   end
@@ -19,12 +19,24 @@ class SinglePackageRetrieveWorker
     "https://cran.r-project.org/src/contrib/#{package_name}_#{version}.tar.gz"
   end
 
-  def read_description_file(package_name, file)
-    compressed_file = Zlib::GzipReader.open(file)
+  def read_description_file(package_name, stream)
+    temp_file = make_tempfile(stream)
+    compressed_file = Zlib::GzipReader.open(temp_file)
     uncompressed = Gem::Package::TarReader.new(compressed_file)
     uncompressed.detect do |f| 
       f.full_name == "#{package_name}/DESCRIPTION"
     end.read
+  end
+
+  def make_tempfile(stream)
+    return stream if stream.respond_to?(:path)
+
+    Tempfile.new.tap do |file|
+      file.binmode
+      IO.copy_stream(stream, file)
+      stream.close
+      file.rewind
+    end
   end
 
   def required_info
