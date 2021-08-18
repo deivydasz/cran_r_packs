@@ -5,16 +5,26 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th >Name</th>
+      <th >Version</th>
+      <th >Date/Publication</th>
+      <th >Title</th>
+      <th >Description</th>
+      <th >Authors</th>
+      <th >Maintainers</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @packages.each do |package| %>
-      <tr>
-        <td><%= link_to 'Show', package %></td>
-        <td><%= link_to 'Edit', edit_package_path(package) %></td>
-        <td><%= link_to 'Destroy', package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% @packages.each_with_index do |package, i| %>
+      <tr class="<%= cycle('even', 'odd') -%>" >
+        <td><%= package.name %></td>
+        <td><%= package.version %></td>
+        <td><%= package.publication_date %></td>
+        <td><%= package.title %></td>
+        <td><%= package.description.truncate(20) %></td>
+        <td><%= package.authors.pluck(:name, :email).join(', ') %></td>
+        <td><%= package.maintainers.pluck(:name, :email).join(', ') %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +32,3 @@
 
 <br>
 
-<%= link_to 'New Package', new_package_path %>
