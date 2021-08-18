@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+require 'sidecloq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => "/sidekiq" # mount Sidekiq::Web in your Rails app
   resources :authors
   resources :maintainers
   resources :packages

@@ -2,7 +2,7 @@ require 'open-uri'
 require 'rubygems/package'
 class SinglePackageRetrieveWorker
   include Sidekiq::Worker
-
+  sidekiq_options retry: 3
 
   def perform(package_name, version)
     return if Package.where(name: package_name, version: version).any?
